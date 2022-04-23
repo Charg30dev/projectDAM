@@ -26,7 +26,6 @@ class ManagerConnections {
                 do {
                     let decoder = JSONDecoder()
                     let series = try decoder.decode(Series.self, from: data)
-                    print("\(series.listOfSeries[0])")
                     
                     observer.onNext(series.listOfSeries)
                 } catch let error {

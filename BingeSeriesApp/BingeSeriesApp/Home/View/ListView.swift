@@ -55,7 +55,7 @@ class ListView: UIViewController {
             .subscribe(on: MainScheduler.instance)
             .observe(on: MainScheduler.instance)
         
-        //Suscribirme al obsevable
+        //Obsevable
             .subscribe (
                 onNext: { series in
                     self.series = series
@@ -64,7 +64,6 @@ class ListView: UIViewController {
                 print(error.localizedDescription)
             }, onCompleted: {
             }).disposed(by: disposeBag)
-        //Dar por completado la secuencia de RXSwift
     }
     
     private func reloadTableView() {
