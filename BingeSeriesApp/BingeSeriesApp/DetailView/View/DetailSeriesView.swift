@@ -6,24 +6,58 @@
 //
 
 import UIKit
+import RxSwift
 
 class DetailSeriesView: UIViewController {
 
+//    MARK: - Outlets
+    
+    @IBOutlet private weak var titleSerie: UILabel!
+    @IBOutlet private weak var imageSerie: UIImageView!
+    @IBOutlet private weak var sinopsisLabel: UILabel!
+    @IBOutlet private weak var releaseDateLabel: UILabel!
+    @IBOutlet private weak var popularityLabel: UILabel!
+    @IBOutlet private weak var voteAverageLabel: UILabel!
+    
+//    MARK: - Variables
+    
+    private var router = DetailSeriesRouter()
+    private var viewModel = DetailSeriesViewModel()
+    private var disposeBag = DisposeBag()
+    var serieID: String?
+    
+//    MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        getDataAndShowDetailSeries()
+        viewModel.bind(view: self, router: router)
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//    MARK: - Functions
+    
+    private func getDataAndShowDetailSeries() {
+        guard let idSerie = serieID else { return }
+        return viewModel.getSerieData(serieID: idSerie).subscribe(
+            onNext: { serie  in
+                self.showSerieData(serie: serie)
+        }, onError: { error in
+            print(error)
+        }, onCompleted: {
+            
+        }).disposed(by: disposeBag)
     }
-    */
-
+    
+    func showSerieData(serie: SeriesDetail) {
+        DispatchQueue.main.async {
+            self.titleSerie.text = serie.title
+            self.imageSerie.imageFromServerURL(urlString: Constants.mainURL.urlImage+serie.imageSerie
+                                            , placeholderImage: UIImage(named: "claqueta")!)
+            self.sinopsisLabel.text = serie.sinopsis
+            self.releaseDateLabel.text = serie.releaseDate
+            self.popularityLabel.text = String(serie.popularity)
+            self.voteAverageLabel.text = String(serie.voteAverage)
+        }
+    }
 }
