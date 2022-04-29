@@ -27,4 +27,8 @@ class ListViewModel {
     func getListSeriesData() -> Observable<[Serie]>{
         return managerConnections.getSeriesList()
     }
+    
+    func makeDetailView(serieID: String) {
+        router?.navigateToDetailSeriesView(serieID: serieID)
+    }
 }

@@ -126,6 +126,13 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         return 200
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            viewModel.makeDetailView(serieID: String(self.filteredSeries[indexPath.row].serieID))
+        } else {
+            viewModel.makeDetailView(serieID: String(self.series[indexPath.row].serieID))
+        }
+    }
 }
 
 extension ListView: UISearchControllerDelegate {

@@ -42,4 +42,37 @@ class ManagerConnections {
             }
         }
     }
+    
+    func getDetailSeries(serieID: String) -> Observable <SeriesDetail>  {
+        return Observable.create { observer in
+                    
+        let session = URLSession.shared
+            var request = URLRequest(url: URL(string: Constants.mainURL.main+Constants.EndPoints.urlDetailSerie+serieID+Constants.apiKey)!)
+            
+            request.httpMethod = "GET"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        session.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil, let response = response as? HTTPURLResponse else { return }
+            
+            if response.statusCode == 200 {
+                do {
+                    let decoder = JSONDecoder()
+                    let detailSerie = try decoder.decode(SeriesDetail.self, from: data)
+                    
+                    observer.onNext(detailSerie)
+                } catch let error {
+                    observer.onError(error)
+                    print(error)
+                }
+            } else if response.statusCode == 401 {
+                print("Error 401")
+            }
+            observer.onCompleted()
+            }.resume()
+            return Disposables.create {
+                session.finishTasksAndInvalidate()
+            }
+        }
+    }
 }

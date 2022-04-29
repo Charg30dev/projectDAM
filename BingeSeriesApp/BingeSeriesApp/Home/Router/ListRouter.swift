@@ -24,5 +24,10 @@ class ListRouter{
         guard let view = sourceView else {fatalError("Error desconocido")}
         self.sourceView = view
     }
+    
+    func  navigateToDetailSeriesView(serieID: String) {
+        let detailView = DetailSeriesRouter(serieID: serieID).viewController
+        sourceView?.navigationController?.pushViewController(detailView, animated: true)
+    }
 }
 
