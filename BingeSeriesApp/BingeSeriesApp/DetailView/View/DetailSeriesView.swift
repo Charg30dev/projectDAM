@@ -16,7 +16,6 @@ class DetailSeriesView: UIViewController {
     @IBOutlet private weak var imageSerie: UIImageView!
     @IBOutlet private weak var sinopsisLabel: UILabel!
     @IBOutlet private weak var releaseDateLabel: UILabel!
-    @IBOutlet private weak var popularityLabel: UILabel!
     @IBOutlet private weak var voteAverageLabel: UILabel!
     
 //    MARK: - Variables
@@ -56,7 +55,6 @@ class DetailSeriesView: UIViewController {
                                             , placeholderImage: UIImage(named: "claqueta")!)
             self.sinopsisLabel.text = serie.sinopsis
             self.releaseDateLabel.text = serie.releaseDate
-            self.popularityLabel.text = String(serie.popularity)
             self.voteAverageLabel.text = String(serie.voteAverage)
         }
     }

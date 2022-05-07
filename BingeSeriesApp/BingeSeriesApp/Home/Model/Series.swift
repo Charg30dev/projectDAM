@@ -20,7 +20,6 @@ struct Series: Codable{
 struct Serie: Codable{
     
         let title: String
-        let popularity: Double
         let serieID: Int
         let voteAverage: Double
         let sinopsis: String
@@ -29,7 +28,6 @@ struct Serie: Codable{
         
         enum CodingKeys: String, CodingKey{
             case title = "name"
-            case popularity
             case serieID = "id"
             case voteAverage = "vote_average"
             case sinopsis = "overview"
