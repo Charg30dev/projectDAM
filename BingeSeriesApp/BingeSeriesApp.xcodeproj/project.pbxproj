@@ -27,6 +27,10 @@
 		842B099227FC2EFF004E3EE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842B099127FC2EFF004E3EE6 /* Constants.swift */; };
 		842B099427FC2F0C004E3EE6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842B099327FC2F0C004E3EE6 /* Extensions.swift */; };
 		842B099627FC2F18004E3EE6 /* ManagerConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842B099527FC2F18004E3EE6 /* ManagerConnections.swift */; };
+		844B5E2628266DC600A911BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5E2428266DC600A911BA /* LoginViewController.swift */; };
+		844B5E2728266DC600A911BA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844B5E2528266DC600A911BA /* LoginViewController.xib */; };
+		844B5E2B28266DF200A911BA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5E2A28266DF200A911BA /* LoginViewModel.swift */; };
+		844B5E2E28266E1600A911BA /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5E2D28266E1600A911BA /* LoginRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,10 @@
 		842B099127FC2EFF004E3EE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		842B099327FC2F0C004E3EE6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		842B099527FC2F18004E3EE6 /* ManagerConnections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerConnections.swift; sourceTree = "<group>"; };
+		844B5E2428266DC600A911BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		844B5E2528266DC600A911BA /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		844B5E2A28266DF200A911BA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		844B5E2D28266E1600A911BA /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		88CA7D2DD236EE15E60B47D8 /* Pods-BingeSeriesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BingeSeriesApp.release.xcconfig"; path = "Target Support Files/Pods-BingeSeriesApp/Pods-BingeSeriesApp.release.xcconfig"; sourceTree = "<group>"; };
 		D08ADB2A0315049A41B0FB3B /* Pods-BingeSeriesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BingeSeriesApp.debug.xcconfig"; path = "Target Support Files/Pods-BingeSeriesApp/Pods-BingeSeriesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EAA6B3941585AA1BAE2601E7 /* Pods_BingeSeriesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BingeSeriesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +90,6 @@
 				D08ADB2A0315049A41B0FB3B /* Pods-BingeSeriesApp.debug.xcconfig */,
 				88CA7D2DD236EE15E60B47D8 /* Pods-BingeSeriesApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -109,6 +116,7 @@
 			children = (
 				842B094D27FC2C88004E3EE6 /* AppDelegate.swift */,
 				842B094F27FC2C88004E3EE6 /* SceneDelegate.swift */,
+				844B5E2328266C2500A911BA /* Login */,
 				842B096127FC2CB0004E3EE6 /* Home */,
 				842B096D27FC2D45004E3EE6 /* DetailView */,
 				842B096327FC2CD0004E3EE6 /* Resources */,
@@ -235,6 +243,41 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		844B5E2328266C2500A911BA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				844B5E2828266DCC00A911BA /* View */,
+				844B5E2928266DDD00A911BA /* ViewModel */,
+				844B5E2C28266E0100A911BA /* Router */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		844B5E2828266DCC00A911BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				844B5E2428266DC600A911BA /* LoginViewController.swift */,
+				844B5E2528266DC600A911BA /* LoginViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		844B5E2928266DDD00A911BA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				844B5E2A28266DF200A911BA /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		844B5E2C28266E0100A911BA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				844B5E2D28266E1600A911BA /* LoginRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,6 +340,7 @@
 			files = (
 				842B095A27FC2C8A004E3EE6 /* LaunchScreen.storyboard in Resources */,
 				842B095727FC2C8A004E3EE6 /* Assets.xcassets in Resources */,
+				844B5E2728266DC600A911BA /* LoginViewController.xib in Resources */,
 				842B097927FC2DD7004E3EE6 /* ListView.xib in Resources */,
 				842B098227FC2E56004E3EE6 /* DetailSeriesView.xib in Resources */,
 				842B097E27FC2E2A004E3EE6 /* CustomSerieTableViewCell.xib in Resources */,
@@ -355,7 +399,10 @@
 				842B098C27FC2ED1004E3EE6 /* SeriesDetail.swift in Sources */,
 				842B098627FC2E9C004E3EE6 /* ListRouter.swift in Sources */,
 				842B097D27FC2E2A004E3EE6 /* CustomSerieTableViewCell.swift in Sources */,
+				844B5E2628266DC600A911BA /* LoginViewController.swift in Sources */,
+				844B5E2B28266DF200A911BA /* LoginViewModel.swift in Sources */,
 				842B099627FC2F18004E3EE6 /* ManagerConnections.swift in Sources */,
+				844B5E2E28266E1600A911BA /* LoginRouter.swift in Sources */,
 				842B097827FC2DD7004E3EE6 /* ListView.swift in Sources */,
 				842B098427FC2E91004E3EE6 /* ListViewModel.swift in Sources */,
 				842B098127FC2E56004E3EE6 /* DetailSeriesView.swift in Sources */,
