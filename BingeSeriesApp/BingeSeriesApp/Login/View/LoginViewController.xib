@@ -45,13 +45,13 @@
                             <rect key="frame" x="35" y="582.5" width="51" height="31"/>
                         </switch>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remeber user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy9-T2-UcY">
-                            <rect key="frame" x="109" y="582.5" width="255" height="25"/>
-                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                            <rect key="frame" x="109" y="582.5" width="255" height="21.5"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZe-4V-1ZJ">
-                            <rect key="frame" x="160" y="682.5" width="94" height="31"/>
+                            <rect key="frame" x="160" y="679" width="94" height="31"/>
                             <color key="backgroundColor" systemColor="systemYellowColor"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
@@ -63,7 +63,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.22031113660000001" blue="0.42425535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.083048159489999995" green="0.28209883190000001" blue="0.42425535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="EZe-4V-1ZJ" firstAttribute="top" secondItem="Qy9-T2-UcY" secondAttribute="bottom" constant="75" id="0GN-bN-yoi"/>
                         <constraint firstItem="WGz-8Y-h7e" firstAttribute="top" secondItem="KiE-9y-xyI" secondAttribute="bottom" constant="190" id="1aY-cq-2Gr"/>
