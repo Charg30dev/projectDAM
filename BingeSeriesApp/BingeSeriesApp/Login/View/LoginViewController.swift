@@ -9,21 +9,39 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    // MARK: - Outlets
+    
+    @IBOutlet weak var userTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var rememberSwitch: UISwitch!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    // Variables
+    
+    private var router = LoginRouter()
+    private var viewModel = LoginViewModel()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+        configurationButton()
+        viewModel.bind(view: self, router: router)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: Actions Functions
+    
+    @IBAction func login(_ sender: Any) {
+        router.loginUser()
     }
-    */
-
+    
+    // MARK: - Functions
+    
+    func configurationButton() {
+        loginButton.layer.cornerRadius = 10
+        loginButton.clipsToBounds = true
+    }
+    
+    
 }
