@@ -37,6 +37,7 @@ class ListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "BingeSeries"
+        self.navigationItem.setHidesBackButton(true, animated: true)
         
         configureTableView()
         viewModel.bind(view: self, router: router)
@@ -88,8 +89,6 @@ class ListView: UIViewController {
                 })
             })
             .disposed(by: disposeBag)
-           
-
     }
 }
 

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,22 +24,22 @@
                             <constraint firstAttribute="width" constant="120" id="DTN-Iw-8vj"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YM6-hL-2CA">
-                        <rect key="frame" x="152" y="55" width="136" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="17" id="vnM-Ei-Kqp"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrE-mT-dOM">
                         <rect key="frame" x="152" y="18" width="152" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="MWl-rj-VLu"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" systemColor="systemYellowColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YM6-hL-2CA">
+                        <rect key="frame" x="152" y="55" width="136" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="vnM-Ei-Kqp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zl2-95-Pb1">
@@ -47,20 +48,20 @@
                             <constraint firstAttribute="height" constant="21" id="q5f-oz-Pck"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" systemColor="systemYellowColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md2-dW-j0I">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md2-dW-j0I">
                         <rect key="frame" x="152" y="125" width="136" height="63"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="63" id="NiM-tM-v7k"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.26871722720000002" green="0.37226937450000003" blue="0.42425535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="Zl2-95-Pb1" firstAttribute="top" secondItem="YM6-hL-2CA" secondAttribute="bottom" constant="16" id="0fG-uX-Cn6"/>
                     <constraint firstItem="YM6-hL-2CA" firstAttribute="top" secondItem="UrE-mT-dOM" secondAttribute="bottom" constant="16" id="7SK-r1-329"/>
@@ -81,7 +82,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" red="0.26871722720000002" green="0.37226937450000003" blue="0.42425535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <connections>
                 <outlet property="descriptionSerie" destination="Md2-dW-j0I" id="jXl-ME-Gs5"/>
                 <outlet property="imageSeries" destination="1Dy-Sj-nBf" id="b8w-F8-aO7"/>
@@ -90,4 +91,12 @@
             <point key="canvasLocation" x="131.8840579710145" y="178.125"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

@@ -19,8 +19,6 @@ class ListViewModel {
         
         self.view = view
         self.router = router
-        
-        //Bindear el router con la vista
         self.router?.setSourceView(view)
     }
     

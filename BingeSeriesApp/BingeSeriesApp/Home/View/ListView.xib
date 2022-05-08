@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,9 +21,8 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LUX-d7-xfB">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <color key="backgroundColor" red="0.26871722720000002" green="0.37226937450000003" blue="0.42425535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="sectionIndexBackgroundColor" red="0.26871722720000002" green="0.37226937450000003" blue="0.42425535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="sectionIndexTrackingBackgroundColor" red="0.26871722720000002" green="0.37226937450000003" blue="0.42425535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="z7n-A4-2Sf"/>
                         <outlet property="delegate" destination="-1" id="NHT-eB-nkw"/>
@@ -30,7 +30,6 @@
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.26871722720000002" green="0.37226937450000003" blue="0.42425535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="LUX-d7-xfB" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="FoA-J6-p6o"/>
                 <constraint firstItem="LUX-d7-xfB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eWJ-k7-Wgz"/>
@@ -40,4 +39,9 @@
             <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
