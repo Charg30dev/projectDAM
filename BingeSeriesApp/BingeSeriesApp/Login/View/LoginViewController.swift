@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
     // MARK: Actions Functions
     
     @IBAction func login(_ sender: Any) {
-        router.loginUser()
+        viewModel.makeLogin()
     }
     
     // MARK: - Functions
