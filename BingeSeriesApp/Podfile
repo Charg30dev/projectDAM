@@ -10,5 +10,6 @@ target 'BingeSeriesApp' do
     pod 'RxSwift' 
     pod 'RxCocoa'
     pod 'SwiftLint'
+    pod 'FirebaseAuth'
 
 end
