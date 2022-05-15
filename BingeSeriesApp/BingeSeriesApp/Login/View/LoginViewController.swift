@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -35,25 +36,66 @@ class LoginViewController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         
-        if userTextField.text?.isEmpty == true || passwordTextField.text?.isEmpty == true {
-            let alert = UIAlertController(title: "Error en el inicio de sesión",
-                                          message: "Su usuario o contraseña son incorrectos",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
+        if self.userTextField.text == "" || self.passwordTextField.text == "" {
+            let alertController = UIAlertController(title: "Error",
+                                                    message: "Por favor introduce email y contraseña",
+                                                    preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
             
         } else {
-            viewModel.makeLogin()
+            
+            Auth.auth().signIn(withEmail: self.userTextField.text!, password: self.passwordTextField.text!) { (user, error) in
+                
+                if error == nil {
+                    
+                    self.viewModel.makeLogin()
+                    
+                } else {
+                    
+                    let alertController = UIAlertController(title: "Error",
+                                                            message: "Usuario o contraseña erróneos",
+                                                            preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
         }
     }
     
     @IBAction func createCount(_ sender: Any) {
         
-        if createCountButton.tag == 0 {
-            loginButton.setTitle("Crear usuario", for: .normal)
-            loginButton.backgroundColor = UIColor.green
-            
+        let alert = UIAlertController(title: "Nuevo Usuario",
+                                      message: "Introduce tus datos por favor",
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Guardar",
+                                       style: .default) { action in
+            let email = alert.textFields![0]
+            let password = alert.textFields![1]
+            Auth.auth().createUser(withEmail: email.text!,
+                                   password: password.text!) { user, error in
+            }
         }
+        let cancelAction = UIAlertAction(title: "Cancelar",
+                                         style: .default)
+        alert.addTextField { textEmail in
+            textEmail.placeholder = "email"
+        }
+        alert.addTextField { textPassword in
+            textPassword.isSecureTextEntry = true
+            textPassword.placeholder = "contraseña"
+        }
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+        
     }
     
     // MARK: - Functions
