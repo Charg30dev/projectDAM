@@ -17,6 +17,8 @@ class DetailSeriesView: UIViewController {
     @IBOutlet private weak var sinopsisLabel: UILabel!
     @IBOutlet private weak var releaseDateLabel: UILabel!
     @IBOutlet private weak var voteAverageLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    
     
 //    MARK: - Variables
     
@@ -25,6 +27,10 @@ class DetailSeriesView: UIViewController {
     private var disposeBag = DisposeBag()
     var serieID: String?
     
+    private let unlikedImage = UIImage(named: "heart_empty")
+    private let likedImage = UIImage(named: "heart_fill")
+    private var isLiked = false
+    
 //    MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -32,6 +38,7 @@ class DetailSeriesView: UIViewController {
 
         getDataAndShowDetailSeries()
         viewModel.bind(view: self, router: router)
+        likeButton.setImage(unlikedImage, for: .normal)
         
     }
 //    MARK: - Functions
@@ -58,4 +65,19 @@ class DetailSeriesView: UIViewController {
             self.voteAverageLabel.text = String(serie.voteAverage)
         }
     }
+    
+    @IBAction func addToLikeAction(_ sender: Any) {
+        
+        if likeButton.tag == 0{
+            
+            likeButton.setImage(likedImage, for: .normal)
+            likeButton.tag = 1
+            
+        } else {
+            
+            likeButton.setImage(unlikedImage, for: .normal)
+            likeButton.tag = 0
+        }
+    }
+    
 }
