@@ -11,11 +11,11 @@ import RxCocoa
 
 class ListView: UIViewController {
 
-    //MARK: - Outlets
+    // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
     
-    //MARK: - Variables
+    // MARK: - Variables
     private var router = ListRouter()
     private var viewModel = ListViewModel()
     private var disposeBag = DisposeBag()
@@ -52,11 +52,10 @@ class ListView: UIViewController {
     
     private func getData() {
         return viewModel.getListSeriesData()
-        //Manejar la concurrencia o hilos de RXSwift
             .subscribe(on: MainScheduler.instance)
             .observe(on: MainScheduler.instance)
         
-        //Obsevable
+        // Obsevable
             .subscribe (
                 onNext: { series in
                     self.series = series
@@ -92,7 +91,7 @@ class ListView: UIViewController {
     }
 }
 
-//MARK: - Extensions
+// MARK: - Extensions
 
 extension ListView: UITableViewDelegate, UITableViewDataSource {
     

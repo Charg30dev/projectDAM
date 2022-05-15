@@ -8,6 +8,7 @@ target 'BingeSeriesApp' do
   # Pods for BingeSeriesApp
 
     pod 'RxSwift' 
-    pod 'RxCocoa' 
+    pod 'RxCocoa'
+    pod 'SwiftLint'
 
 end
