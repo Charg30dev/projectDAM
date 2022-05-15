@@ -30,7 +30,6 @@
 		844B5E2628266DC600A911BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5E2428266DC600A911BA /* LoginViewController.swift */; };
 		844B5E2728266DC600A911BA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844B5E2528266DC600A911BA /* LoginViewController.xib */; };
 		844B5E2B28266DF200A911BA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5E2A28266DF200A911BA /* LoginViewModel.swift */; };
-		844B5E2E28266E1600A911BA /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5E2D28266E1600A911BA /* LoginRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +57,6 @@
 		844B5E2428266DC600A911BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		844B5E2528266DC600A911BA /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		844B5E2A28266DF200A911BA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		844B5E2D28266E1600A911BA /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		88CA7D2DD236EE15E60B47D8 /* Pods-BingeSeriesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BingeSeriesApp.release.xcconfig"; path = "Target Support Files/Pods-BingeSeriesApp/Pods-BingeSeriesApp.release.xcconfig"; sourceTree = "<group>"; };
 		D08ADB2A0315049A41B0FB3B /* Pods-BingeSeriesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BingeSeriesApp.debug.xcconfig"; path = "Target Support Files/Pods-BingeSeriesApp/Pods-BingeSeriesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EAA6B3941585AA1BAE2601E7 /* Pods_BingeSeriesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BingeSeriesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,7 +246,6 @@
 			children = (
 				844B5E2828266DCC00A911BA /* View */,
 				844B5E2928266DDD00A911BA /* ViewModel */,
-				844B5E2C28266E0100A911BA /* Router */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -268,14 +265,6 @@
 				844B5E2A28266DF200A911BA /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		844B5E2C28266E0100A911BA /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				844B5E2D28266E1600A911BA /* LoginRouter.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,7 +391,6 @@
 				844B5E2628266DC600A911BA /* LoginViewController.swift in Sources */,
 				844B5E2B28266DF200A911BA /* LoginViewModel.swift in Sources */,
 				842B099627FC2F18004E3EE6 /* ManagerConnections.swift in Sources */,
-				844B5E2E28266E1600A911BA /* LoginRouter.swift in Sources */,
 				842B097827FC2DD7004E3EE6 /* ListView.swift in Sources */,
 				842B098427FC2E91004E3EE6 /* ListViewModel.swift in Sources */,
 				842B098127FC2E56004E3EE6 /* DetailSeriesView.swift in Sources */,

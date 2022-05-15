@@ -10,9 +10,9 @@ import Foundation
 class LoginViewModel {
     
     private(set) weak var view: LoginViewController?
-    private var router: LoginRouter?
+    private var router: ListRouter?
     
-    func bind(view: LoginViewController, router: LoginRouter) {
+    func bind(view: LoginViewController, router: ListRouter) {
         self.view = view
         self.router = router
         self.router?.setSourceView(view)

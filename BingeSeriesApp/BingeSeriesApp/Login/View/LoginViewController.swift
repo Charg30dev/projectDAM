@@ -18,10 +18,8 @@ class LoginViewController: UIViewController {
     
     // Variables
     
-    private var router = LoginRouter()
+    private var router = ListRouter()
     private var viewModel = LoginViewModel()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +39,7 @@ class LoginViewController: UIViewController {
     func configurationButton() {
         loginButton.layer.cornerRadius = 10
         loginButton.clipsToBounds = true
+        loginButton.setTitle("Enter", for: .normal)
     }
     
     

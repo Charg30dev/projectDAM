@@ -29,5 +29,10 @@ class ListRouter{
         let detailView = DetailSeriesRouter(serieID: serieID).viewController
         sourceView?.navigationController?.pushViewController(detailView, animated: true)
     }
+    
+    func loginUser() {
+        let login = ListView()
+        sourceView?.navigationController?.pushViewController(login, animated: true)
+    }
 }
 
