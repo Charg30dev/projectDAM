@@ -29,4 +29,8 @@ class ListViewModel {
     func makeDetailView(serieID: String) {
         router?.navigateToDetailSeriesView(serieID: serieID)
     }
+    
+    func toDoLogOut() {
+        router?.userLogOut()
+    }
 }

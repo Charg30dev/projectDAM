@@ -22,6 +22,8 @@ class ListView: UIViewController {
     private var series = [Serie]()
     private var filteredSeries = [Serie]()
     
+    let logOut = UIBarButtonItem(title: "Cerrar sesión", style: .plain, target: LoginViewController.self, action: #selector(toLogOut))
+    
     lazy var searchController: UISearchController = ({
         let controller = UISearchController(searchResultsController: nil)
         controller.hidesNavigationBarDuringPresentation = true
@@ -38,6 +40,7 @@ class ListView: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "BingeSeries"
         self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.rightBarButtonItem = logOut
         
         configureTableView()
         viewModel.bind(view: self, router: router)
@@ -71,6 +74,11 @@ class ListView: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    @objc private func toLogOut() {
+        viewModel.toDoLogOut()
+    }
+    
     private func manageSearchBarController() {
         let searchBar = searchController.searchBar
         searchController.delegate = self

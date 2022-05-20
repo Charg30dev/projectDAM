@@ -34,5 +34,10 @@ class ListRouter{
         let login = ListView()
         sourceView?.navigationController?.pushViewController(login, animated: true)
     }
+    
+    func userLogOut() {
+        let logOut = LoginViewController()
+        sourceView?.navigationController?.pushViewController(logOut, animated: true)
+    }
 }
 
