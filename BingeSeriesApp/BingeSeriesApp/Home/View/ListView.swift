@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 
 class ListView: UIViewController {
 
@@ -75,7 +76,11 @@ class ListView: UIViewController {
         }
     }
     
-    @objc private func toLogOut() {
+    @objc private func toLogOut(_ sender:UIButton!) {
+        
+        do { try Auth.auth().signOut() }
+            catch { print("already logged out") }
+        
         viewModel.toDoLogOut()
     }
     
