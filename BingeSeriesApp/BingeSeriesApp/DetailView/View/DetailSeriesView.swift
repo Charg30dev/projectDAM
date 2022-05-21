@@ -66,6 +66,12 @@ class DetailSeriesView: UIViewController {
         }
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        
+        viewModel.toGoBackMenu()
+    }
+    
+    
     @IBAction func addToLikeAction(_ sender: Any) {
         
         if likeButton.tag == 0{

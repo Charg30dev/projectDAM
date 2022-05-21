@@ -30,4 +30,9 @@ class DetailSeriesRouter {
        view.serieID = self.serieID
        return view
     }
+    
+    func goBackMenu() {
+        let back = ListView()
+        sourceView?.navigationController?.pushViewController(back, animated: true)
+    }
 }

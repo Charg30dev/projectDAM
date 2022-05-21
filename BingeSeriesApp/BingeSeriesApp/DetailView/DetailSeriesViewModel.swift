@@ -24,4 +24,8 @@ class DetailSeriesViewModel {
     func getSerieData(serieID: String) -> Observable <SeriesDetail> {
         return managerConnection.getDetailSeries(serieID: serieID)
     }
+    
+    func toGoBackMenu(){
+        router?.goBackMenu()
+    }
 }
