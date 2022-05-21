@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListView" customModule="BingeSeriesApp" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="LUX-d7-xfB" id="bAS-F8-cA6"/>
+                <outlet property="titleLabel" destination="Ghe-XP-zGM" id="lBW-7B-JUf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,27 +21,61 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LUX-d7-xfB">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXp-XP-5nJ">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LUX-d7-xfB">
+                            <rect key="frame" x="0.0" y="106" width="414" height="790"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="z7n-A4-2Sf"/>
+                                <outlet property="delegate" destination="-1" id="NHT-eB-nkw"/>
+                            </connections>
+                        </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghe-XP-zGM">
+                            <rect key="frame" x="75" y="60" width="319" height="0.0"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                            <color key="textColor" red="0.083048159489999995" green="0.28209883190000001" blue="0.42425535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZl-jQ-lOL">
+                            <rect key="frame" x="25" y="60" width="49" height="31"/>
+                            <color key="tintColor" red="0.083048159489999995" green="0.28209883190000001" blue="0.42425535219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="person.crop.circle.fill.badge.minus" catalog="system" title=" "/>
+                            <connections>
+                                <action selector="logOutButton:" destination="-1" eventType="touchUpInside" id="YY8-eb-8Yb"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="z7n-A4-2Sf"/>
-                        <outlet property="delegate" destination="-1" id="NHT-eB-nkw"/>
-                    </connections>
-                </tableView>
+                    <constraints>
+                        <constraint firstItem="LUX-d7-xfB" firstAttribute="top" secondItem="GZl-jQ-lOL" secondAttribute="bottom" constant="15" id="7F0-b4-d9y"/>
+                        <constraint firstItem="GZl-jQ-lOL" firstAttribute="top" secondItem="oXp-XP-5nJ" secondAttribute="top" constant="60" id="AQM-mg-1df"/>
+                        <constraint firstAttribute="bottom" secondItem="LUX-d7-xfB" secondAttribute="bottom" id="FaM-1t-Qz9"/>
+                        <constraint firstItem="LUX-d7-xfB" firstAttribute="leading" secondItem="oXp-XP-5nJ" secondAttribute="leading" id="Lnx-gY-IfI"/>
+                        <constraint firstItem="Ghe-XP-zGM" firstAttribute="leading" secondItem="GZl-jQ-lOL" secondAttribute="leading" constant="50" id="MTZ-Vy-ejE"/>
+                        <constraint firstItem="Ghe-XP-zGM" firstAttribute="top" secondItem="oXp-XP-5nJ" secondAttribute="top" constant="60" id="c9W-GV-5c9"/>
+                        <constraint firstAttribute="trailing" secondItem="Ghe-XP-zGM" secondAttribute="trailing" constant="20" id="cmi-5T-6cj"/>
+                        <constraint firstAttribute="trailing" secondItem="LUX-d7-xfB" secondAttribute="trailing" id="kSQ-rk-Sce"/>
+                        <constraint firstItem="GZl-jQ-lOL" firstAttribute="leading" secondItem="oXp-XP-5nJ" secondAttribute="leading" constant="25" id="l0e-kV-lNj"/>
+                        <constraint firstItem="Ghe-XP-zGM" firstAttribute="top" secondItem="oXp-XP-5nJ" secondAttribute="top" constant="60" id="qHu-ec-5ob"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <constraints>
-                <constraint firstItem="LUX-d7-xfB" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="FoA-J6-p6o"/>
-                <constraint firstItem="LUX-d7-xfB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eWJ-k7-Wgz"/>
-                <constraint firstAttribute="bottom" secondItem="LUX-d7-xfB" secondAttribute="bottom" id="iOb-QI-JNj"/>
-                <constraint firstItem="LUX-d7-xfB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kRr-6F-Uj3"/>
+                <constraint firstItem="oXp-XP-5nJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0KV-c0-QNm"/>
+                <constraint firstAttribute="trailing" secondItem="oXp-XP-5nJ" secondAttribute="trailing" id="5jc-nW-0qD"/>
+                <constraint firstAttribute="bottom" secondItem="oXp-XP-5nJ" secondAttribute="bottom" id="pJe-xY-tW5"/>
+                <constraint firstItem="oXp-XP-5nJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="viW-Kh-dmp"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
         </view>
     </objects>
     <resources>
+        <image name="person.crop.circle.fill.badge.minus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

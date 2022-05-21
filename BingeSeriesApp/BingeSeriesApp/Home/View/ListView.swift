@@ -15,6 +15,7 @@ class ListView: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     // MARK: - Variables
     private var router = ListRouter()
@@ -22,8 +23,6 @@ class ListView: UIViewController {
     private var disposeBag = DisposeBag()
     private var series = [Serie]()
     private var filteredSeries = [Serie]()
-    
-    let logOut = UIBarButtonItem(title: "Cerrar sesión", style: .plain, target: LoginViewController.self, action: #selector(toLogOut))
     
     lazy var searchController: UISearchController = ({
         let controller = UISearchController(searchResultsController: nil)
@@ -39,9 +38,8 @@ class ListView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "BingeSeries"
-        self.navigationItem.setHidesBackButton(true, animated: true)
-        self.navigationItem.rightBarButtonItem = logOut
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.titleLabel.text = "Binge Series"
         
         configureTableView()
         viewModel.bind(view: self, router: router)
@@ -76,14 +74,6 @@ class ListView: UIViewController {
         }
     }
     
-    @objc private func toLogOut(_ sender:UIButton!) {
-        
-        do { try Auth.auth().signOut() }
-            catch { print("already logged out") }
-        
-        viewModel.toDoLogOut()
-    }
-    
     private func manageSearchBarController() {
         let searchBar = searchController.searchBar
         searchController.delegate = self
@@ -102,6 +92,22 @@ class ListView: UIViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+//    MARK: -IBAction
+    
+    @IBAction func logOutButton(_ sender: Any) {
+        
+        let auth = Auth.auth()
+        
+        do {
+            try auth.signOut()
+            viewModel.toDoLogOut()
+            
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+    }
+    
 }
 
 // MARK: - Extensions
