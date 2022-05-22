@@ -32,6 +32,20 @@ class LoginViewController: UIViewController {
         viewModel.bind(view: self, router: router)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if UserDefaults.standard.bool(forKey: "remember") {
+            
+            self.rememberSwitch.setOn(true, animated: true)
+            self.userTextField.text = UserDefaults.standard.string(forKey: "user")
+            self.passwordTextField.text = UserDefaults.standard.string(forKey: "password")
+            
+        } else {
+            
+            self.rememberSwitch.setOn(false, animated: true)
+        }
+    }
+    
     // MARK: Actions Functions
     
     @IBAction func login(_ sender: Any) {
@@ -97,6 +111,29 @@ class LoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    @IBAction func rememberMeAction(_ sender: Any) {
+        
+        if self.rememberSwitch.isOn {
+            
+            self.rememberSwitch.setOn(true, animated: true)
+            UserDefaults.standard.set(self.userTextField.text, forKey: "user")
+            UserDefaults.standard.set(self.passwordTextField.text, forKey: "password")
+            UserDefaults.standard.set(self.rememberSwitch.isOn, forKey: "remember")
+            UserDefaults.standard.synchronize()
+            
+        } else {
+            
+            self.rememberSwitch.setOn(false, animated: true)
+            self.userTextField.text = ""
+            self.passwordTextField.text = ""
+            UserDefaults.standard.removeObject(forKey: "user")
+            UserDefaults.standard.removeObject(forKey: "password")
+            UserDefaults.standard.synchronize()
+            
+        }
+    }
+    
     
     // MARK: - Functions
     

@@ -46,6 +46,9 @@
                         </textField>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yHr-rM-vgq">
                             <rect key="frame" x="35" y="525" width="51" height="31"/>
+                            <connections>
+                                <action selector="rememberMeAction:" destination="-1" eventType="valueChanged" id="KHV-Fb-8Br"/>
+                            </connections>
                         </switch>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZe-4V-1ZJ">
                             <rect key="frame" x="100" y="620" width="214" height="31"/>
