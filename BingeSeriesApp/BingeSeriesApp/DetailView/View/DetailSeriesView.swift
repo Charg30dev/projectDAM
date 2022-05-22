@@ -29,7 +29,6 @@ class DetailSeriesView: UIViewController {
     
     private let unlikedImage = UIImage(named: "heart_empty")
     private let likedImage = UIImage(named: "heart_fill")
-    private var isLiked = false
     
 //    MARK: - Lifecycle
     
@@ -38,7 +37,12 @@ class DetailSeriesView: UIViewController {
 
         getDataAndShowDetailSeries()
         viewModel.bind(view: self, router: router)
-        likeButton.setImage(unlikedImage, for: .normal)
+
+        if UserDefaults.standard.string(forKey: "saved") == serieID! {
+            self.likeButton.setImage(likedImage, for: .normal)
+        } else {
+            self.likeButton.setImage(unlikedImage, for: .normal)
+        }
         
     }
 //    MARK: - Functions
@@ -71,19 +75,26 @@ class DetailSeriesView: UIViewController {
         viewModel.toGoBackMenu()
     }
     
-    
     @IBAction func addToLikeAction(_ sender: Any) {
         
-        if likeButton.tag == 0{
+        if self.likeButton.tag == 0{
+
+            self.likeButton.setImage(likedImage, for: .normal)
+            self.likeButton.tag = 1
             
-            likeButton.setImage(likedImage, for: .normal)
-            likeButton.tag = 1
+            print(serieID!)
+            UserDefaults.standard.set(serieID, forKey: "saved")
+            UserDefaults.standard.synchronize()
             
         } else {
+
+            self.likeButton.setImage(unlikedImage, for: .normal)
+            self.likeButton.tag = 0
             
-            likeButton.setImage(unlikedImage, for: .normal)
-            likeButton.tag = 0
+            print(serieID!)
+            UserDefaults.standard.set(serieID, forKey: "saved")
+            UserDefaults.standard.synchronize()
+            
         }
     }
-    
 }
